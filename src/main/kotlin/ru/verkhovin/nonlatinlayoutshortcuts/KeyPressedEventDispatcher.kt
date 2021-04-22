@@ -8,11 +8,8 @@ import com.intellij.openapi.keymap.KeymapManager
 import java.awt.AWTEvent
 import java.awt.event.KeyEvent
 
-
-class KeyPressedEventDispatcher(
-    private val actionManager: ActionManager,
-    private val keymapManager: KeymapManager
-) : IdeEventQueue.EventDispatcher {
+class KeyPressedEventDispatcher(private val actionManager: ActionManager, private val keymapManager: KeymapManager) :
+    IdeEventQueue.EventDispatcher {
     override fun dispatch(event: AWTEvent): Boolean {
         if (event is KeyEvent && event.id == KeyEvent.KEY_PRESSED) {
             handleKeyPressedEvent(event)
