@@ -1,6 +1,6 @@
 <idea-plugin>
-    <id>com.github.verkhovin.nonlatinlayoutshortcuts</id>
-    <name>non-latin-layout-shortcuts</name>
+    <id>ru.verkhovin.nonlatinlayoutshortcuts</id>
+    <name>Non-Latin Layout Shortcuts Fix</name>
     <vendor>verkhovin</vendor>
 
     <!-- Product and plugin compatibility requirements -->
@@ -8,12 +8,12 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.verkhovin.nonlatinlayoutshortcuts.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.verkhovin.nonlatinlayoutshortcuts.services.MyProjectService"/>
+        <projectService
+                serviceImplementation="ru.verkhovin.nonlatinlayoutshortcuts.services.DummyDisposableService"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.verkhovin.nonlatinlayoutshortcuts.listeners.MyProjectManagerListener"
+        <listener class="ru.verkhovin.nonlatinlayoutshortcuts.listeners.ProjectOpenedListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
 </idea-plugin>
