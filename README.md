@@ -18,12 +18,7 @@
   about releases containing new features and fixes.
 
 <!-- Plugin description -->
-This Fancy IntelliJ Platform Plugin is going to be your implementation of the brilliant ideas that you have.
-
-This specific section is a source for the [plugin.xml](/src/main/resources/META-INF/plugin.xml) file which will be
-extracted by the [Gradle](/build.gradle.kts) during the build process.
-
-To keep everything working, do not remove `<!-- ... -->` sections.
+Fixes the problem with not responding shortcuts on some of Linux systems (Ubuntu, Mint) when current keyboard layout is not latin.
 <!-- Plugin description end -->
 
 ## Installation
