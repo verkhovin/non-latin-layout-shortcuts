@@ -19,7 +19,7 @@ class KeyPressedEventDispatcher(private val actionManager: ActionManager, privat
 
     private fun handleKeyPressedEvent(keyEvent: KeyEvent) {
         val char = keyEvent.extendedKeyCode.toChar()
-        if (isShortCut(keyEvent) || !isLatinLetter(char)) {
+        if (isShortCut(keyEvent) && Character.isLetter(char) && !isLatinLetter(char)) {
             LayoutMapper.getSameKeyFromLatinLayout(char)?.let { mappedChar ->
                 val shortcut = buildKeyboardShortcut(keyEvent, mappedChar)
                 tryEachActionUntilSuccess(keymapManager.activeKeymap.getActionIds(shortcut), keyEvent)

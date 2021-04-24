@@ -11,12 +11,21 @@ import ru.verkhovin.nonlatinlayoutshortcuts.services.DummyDisposableService
 
 internal class ProjectOpenedListener : ProjectManagerListener {
 
+    private var initialized = false
+
     override fun projectOpened(project: Project) {
-        val actionManager = ActionManager.getInstance()
-        val keymapManager = KeymapManager.getInstance()
-        IdeEventQueue.getInstance().addPostprocessor(
-            KeyPressedEventDispatcher(actionManager, keymapManager),
-            project.service<DummyDisposableService>()
-        )
+        if (!initialized) {
+            synchronized(initialized) {
+                if (!initialized) {
+                    val actionManager = ActionManager.getInstance()
+                    val keymapManager = KeymapManager.getInstance()
+                    IdeEventQueue.getInstance().addPostprocessor(
+                        KeyPressedEventDispatcher(actionManager, keymapManager),
+                        project.service<DummyDisposableService>()
+                    )
+                    initialized = true
+                }
+            }
+        }
     }
 }
