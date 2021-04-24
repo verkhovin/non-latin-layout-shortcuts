@@ -1,6 +1,9 @@
 <idea-plugin>
     <id>ru.verkhovin.nonlatinlayoutshortcuts</id>
     <name>Non-Latin Layout Shortcuts Fix</name>
+    <description>Fixes the problem with not responding shortcuts on some of Linux systems (Ubuntu, Mint) when current keyboard layout is not latin</description>
+    <change-notes>Added support for Cyrillic keyboard layout</change-notes>
+    <version>0.0.1</version>
     <vendor>verkhovin</vendor>
 
     <!-- Product and plugin compatibility requirements -->
